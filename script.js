@@ -55,7 +55,7 @@ var generate= function() {
     var specChar= window.confirm("Click OK to confirm including SPECIAL characters.");
     if (specChar) {
       tempSpec= tempSpec.concat(specialChars);
-      console.log(tempSpec);
+      //console.log(tempSpec);
     }
     else {
       tempSpec= [];
@@ -68,11 +68,11 @@ var generate= function() {
     }
     if (numChar) {
       tempNum= tempSpec.concat(numberNumber);
-      console.log(tempNum);
+      //console.log(tempNum);
     }
     else {
       tempNum= tempNum.concat(tempSpec);
-      console.log(tempNum);
+      //console.log(tempNum);
     }
 
     var lowerChar= window.confirm("Click OK to confirm including LOWER-CASE characters");
@@ -82,11 +82,11 @@ var generate= function() {
     }
     if (lowerChar) {
       tempLower= tempNum.concat(smallLetter);
-      console.log(tempLower);
+      //console.log(tempLower);
     }
     else {
       tempLower= tempLower.concat(tempNum);
-      console.log(tempLower);
+      //console.log(tempLower);
     }
 
     var upperChar= window.confirm("Click OK to confirm including UPPER-CASE characters");
@@ -96,23 +96,32 @@ var generate= function() {
     }
     if (upperChar) {
       tempUpper= tempLower.concat(capitalLetter);
-      console.log(tempUpper);
+      //console.log(tempUpper);
     }
     else {
       tempUpper= tempUpper.concat(tempLower);
-      console.log(tempUpper);
-    }
-    
-
-    
-    
-
-  
-
+      //console.log(tempUpper);
+      }
+  //9console.log(tempUpper);
     
   }
+  generatedPass(charConfirm);
 
 };
+
+var generatedPass = function(charConfirm) {
+
+  for (j=0; j<charConfirm; j++) {
+    var randomPassword= tempUpper[Math.floor(Math.random()*tempUpper.length)];
+    randomPassword[j]= tempUpper;
+    var randomPassword = String.fromCharCode(randomPassword);
+    console.log(randomPassword);
+  }
+    window.alert(randomPassword);
+    
+    
+
+}
 
 
 //smallLetterAscii();
