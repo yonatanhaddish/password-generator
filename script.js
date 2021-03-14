@@ -1,45 +1,8 @@
 //CREATING AN EMPTY TEMPORARY ARRAY
-var tempSpec= [];
-var tempLower= [];
-var tempUpper= [];
-var tempNum= [];
-
-//INSERTING LOWERCASE ASCII INTO AN ARRAY
-var smallLetterAscii= function() {
-  smallLetter= [];
-
-  for (i=0; i<=25; i++) {
-    smallLetter[i]= i+97;
-  }
-  console.log(smallLetter);
-};
-
-//INSERTING UPPERCASE ASCII INTO AN ARRAY
-var capitalLetterAscii= function() {
-  capitalLetter= [];
-
-  for (i=0; i<=25; i++) {
-    capitalLetter[i]= i+65;
-  }
-  console.log(capitalLetter);
-};
-
-//INSERTING NUMBERS ASCII IN TO AN ARRAY
-var numberAscii= function() {
-  numberNumber= [];
-
-  for (i=0; i<=9; i++) {
-    numberNumber[i]= i+48;
-  }
-  //console.log(numberNumber);
-};
-
-//INSERTING SPECIAL CHARACTERS INTO AN ARRAY MANUALLY
-var specialCharAscii= function() {
-  var specialChars= [33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,58,59,60,61,62,63,64,91,92,93,94,95,96,123,124,125,125];
-  //console.log(specialChars);
-};
-
+ var tempSpec= [];
+ var tempLower= [];
+ var tempUpper= [];
+ var tempNum= [];
 
 var generate= function() {
 
@@ -50,12 +13,11 @@ var generate= function() {
     generate();
   }
   
-  else {
+  else if (charConfirm>=8 && charConfirm<=128) {
     var specialChars= [33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,58,59,60,61,62,63,64,91,92,93,94,95,96,123,124,125,126];
     var specChar= window.confirm("Click OK to confirm including SPECIAL characters.");
     if (specChar) {
       tempSpec= tempSpec.concat(specialChars);
-      //console.log(tempSpec);
     }
     else {
       tempSpec= [];
@@ -68,11 +30,9 @@ var generate= function() {
     }
     if (numChar) {
       tempNum= tempSpec.concat(numberNumber);
-      //console.log(tempNum);
     }
     else {
       tempNum= tempNum.concat(tempSpec);
-      //console.log(tempNum);
     }
 
     var lowerChar= window.confirm("Click OK to confirm including LOWER-CASE characters");
@@ -100,26 +60,30 @@ var generate= function() {
     }
     else {
       tempUpper= tempUpper.concat(tempLower);
-      //console.log(tempUpper);
       }
-  //9console.log(tempUpper);
-    
+  }
+
+  else {
+    window.alert("YOU MUST CHOOSE ONLY NUMBERS. CHOOSE AGAIN")
+    generate();
   }
   generatedPass(charConfirm);
 
 };
 
 var generatedPass = function(charConfirm) {
+  var randomPassword= [];
+  var tempPassword= [];
 
   for (j=0; j<charConfirm; j++) {
     var randomPassword= tempUpper[Math.floor(Math.random()*tempUpper.length)];
-    randomPassword[j]= tempUpper;
     var randomPassword = String.fromCharCode(randomPassword);
-    console.log(randomPassword);
+    var tempPassword= tempPassword.concat(randomPassword);
   }
-    window.alert(randomPassword);
-    
-    
+  
+console.log(tempPassword);
+window.alert(tempPassword.join('  '));
+console.log(tempPassword.join(''));
 
 }
 
