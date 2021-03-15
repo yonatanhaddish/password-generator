@@ -8,6 +8,9 @@ var generatePassword= function() {
 
   var charConfirm= window.prompt("How many characters would you like your password to contain?");
 
+  //MAKING SURE THE CHARACTERS MUST BE A 'NUMBER' BETWEEN 8 AND 128
+
+  //if the lenght of the desired password is less than 8 and greater than 128. TRY AGAIN
   if (charConfirm<8 || charConfirm>128) {
     window.alert("Password length must be between 8 and 128. CHOOSE AGAIN!");
     generatePassword();
@@ -80,7 +83,7 @@ var generatedPass = function(charConfirm) {
   
 console.log(tempPassword);
 if (tempPassword.length>=8 && tempPassword.length<=128) {
-  window.alert(tempPassword.join('  '));
+  window.alert("THIS WILL BE YOUR PASSWORD:          " + tempPassword.join('  '));
 }
 else {
   console.log("");
@@ -90,18 +93,13 @@ else {
 
 }
 
-generatePassword();
 
 
 
-
-
-
-
-
-
- 
 
 // Add event listener to generate button
 var generateBtn= document.getElementById("generate");
  generateBtn.addEventListener("click", generatePassword);
+
+
+ generatePassword();
