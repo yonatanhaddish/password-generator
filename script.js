@@ -4,13 +4,13 @@
  var tempUpper= [];
  var tempNum= [];
 
-var generate= function() {
+var generatePassword= function() {
 
   var charConfirm= window.prompt("How many characters would you like your password to contain?");
 
   if (charConfirm<8 || charConfirm>128) {
     window.alert("Password length must be between 8 and 128. CHOOSE AGAIN!");
-    generate();
+    generatePassword();
   }
   
   else if (charConfirm>=8 && charConfirm<=128) {
@@ -42,11 +42,9 @@ var generate= function() {
     }
     if (lowerChar) {
       tempLower= tempNum.concat(smallLetter);
-      //console.log(tempLower);
     }
     else {
       tempLower= tempLower.concat(tempNum);
-      //console.log(tempLower);
     }
 
     var upperChar= window.confirm("Click OK to confirm including UPPER-CASE characters");
@@ -56,7 +54,6 @@ var generate= function() {
     }
     if (upperChar) {
       tempUpper= tempLower.concat(capitalLetter);
-      //console.log(tempUpper);
     }
     else {
       tempUpper= tempUpper.concat(tempLower);
@@ -65,7 +62,7 @@ var generate= function() {
 
   else {
     window.alert("YOU MUST CHOOSE ONLY NUMBERS. CHOOSE AGAIN")
-    generate();
+    generatePassword();
   }
   generatedPass(charConfirm);
 
@@ -82,34 +79,29 @@ var generatedPass = function(charConfirm) {
   }
   
 console.log(tempPassword);
-window.alert(tempPassword.join('  '));
-console.log(tempPassword.join(''));
-
+if (tempPassword.length>=8 && tempPassword.length<=128) {
+  window.alert(tempPassword.join('  '));
+}
+else {
+  console.log("");
+  window.alert("Password generated sucessful");
 }
 
 
-//smallLetterAscii();
-//capitalLetterAscii();
-//numberAscii();
-//specialCharAscii();
-generate();
+}
+
+generatePassword();
 
 
 
 
 
 
-// Get references to the #generate element
-//var generateBtn = document.querySelector("#generate");
 
-// Write password to the #password input
-//function writePassword() {
- // var password = generatePassword();
-  //var passwordText = document.querySelector("#password");
 
-  //passwordText.value = password;
 
-//}
+ 
 
 // Add event listener to generate button
-//generateBtn.addEventListener("click", writePassword);
+var generateBtn= document.getElementById("generate");
+ generateBtn.addEventListener("click", generatePassword);
