@@ -1,9 +1,33 @@
-# Password Generator Starter Code
+# Password Generator
 
 
-##DESCRIPTION
-This is a web-application that generates a password. For more datail see the flow-chart below.
+## DESCRIPTION
+This is a web-application that generates a random password. Password length must be between 8 and 128 characters. User can choose lowercase, uppercase, numeric and/or special characters. For more datail see the flow-chart below.
 
+## Table of Contents
+* [Installation](#installation)
+* [Usage](#usage)
+* [Contributing](#contributing)
+* [Tests](#tests)
+* [Questions](#questions)
+* [Link](#link)
+
+## Installation 
+No installation required.
+
+## Usage 
+This application will allow users generate a random password based on the criteria they select.
+
+## Contributing 
+Contributors should read the installation section. 
+
+## Tests
+There are no tests for this application.
+
+## Questions
+If you have any questions about this projects, please contact me directly at yonihailsh@gmail.com
+
+## Link
 
 ##LINK TO THE DEPLOYED APPLICATION
 
